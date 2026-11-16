@@ -102,6 +102,8 @@
           const r = card.getBoundingClientRect();
           const x = (e.clientX - r.left) / r.width - 0.5;
           const y = (e.clientY - r.top) / r.height - 0.5;
+          card.style.setProperty('--mx', `${((x + 0.5) * 100).toFixed(1)}%`);
+          card.style.setProperty('--my', `${((y + 0.5) * 100).toFixed(1)}%`);
           card.style.transform = `perspective(800px) rotateX(${(-y * 7).toFixed(2)}deg) rotateY(${(x * 9).toFixed(2)}deg) translateZ(0)`;
         });
       });

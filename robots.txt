@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://harshipatel2006.github.io/accord-coaching-classes-vasai/sitemap.xml
