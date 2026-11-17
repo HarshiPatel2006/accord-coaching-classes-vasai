@@ -1,0 +1,4 @@
+[hidden] { display: none !important; }
+.profile small,
+.student-row small,
+.empty-state { color: #66666b; }

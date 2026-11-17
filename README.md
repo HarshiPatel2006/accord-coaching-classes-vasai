@@ -19,6 +19,26 @@ A fast, single-page, dark black-and-purple site for a local coaching class:
 - Mobile-first, with a sticky Call / WhatsApp / Directions bar on phones.
 - Local SEO: keyword-focused title and description, canonical URL, Open Graph and Twitter cards, `EducationalOrganization` + `LocalBusiness` + `WebSite` + `FAQPage` JSON-LD, geo meta tags, `sitemap.xml`, `robots.txt` and a `404.html`.
 - No frameworks, no trackers, no external fonts: plain HTML, CSS and ~200 lines of JavaScript. Lighthouse 100 for Accessibility, Best Practices and SEO.
+- A polished student/teacher portal preview at `portal.html`, with a Std 9 Maharashtra Board portion tracker, timed PDF tests, answer submission, marks and downloadable progress reports.
+
+## Portal status: local demo
+
+The portal is deliberately labelled **Demo mode**. GitHub Pages cannot provide private authentication or storage, and no authenticated backend CLI was available while this version was built. Demo data and PDF files are stored in the current browser only. Do not use it for real student records.
+
+Demo sign-ins:
+
+- Student: `danny_parmar` / `parmar1234`
+- Teacher: `harshit_patel` / `patel040506`
+
+For production, create a Supabase project and replace the browser storage layer with:
+
+1. Supabase Auth accounts created by a server-only seed script (never embed passwords or the service-role key in client code).
+2. `profiles`, `portions`, `tests`, and `submissions` tables with row-level security: teachers can manage all class records; students can read/write only their profile, portions and submissions.
+3. Private `test-papers` and `answer-pdfs` buckets, PDF MIME validation, a 10 MB server-side limit, and short-lived signed download URLs.
+4. A database policy or Edge Function that returns test papers only inside `available_from` / `available_until`; answers remain private after expiry.
+5. Environment-provided public project URL and anonymous key, a 30-minute session policy, teacher-only account creation, and an audit log for marks changes.
+
+The checked-in demo uses SHA-256 comparisons only to avoid plainly embedding passwords in JavaScript. That is not secure authentication because all client code is public.
 
 ## Tech
 

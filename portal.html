@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Accord Coaching Classes learning portal demo for portions, timed tests, submissions and marks.">
+  <meta name="theme-color" content="#f5f5f7">
+  <title>Learning Portal · Accord Coaching Classes</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/jakarta.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="portal.css">
+  <link rel="stylesheet" href="portal-state.css">
+</head>
+<body>
+  <a class="skip" href="#portal-main">Skip to content</a>
+  <header class="portal-nav">
+    <a class="portal-brand" href="index.html"><span>AC</span> Accord</a>
+    <div class="portal-nav__actions"><span class="demo-pill">Demo mode</span><button class="text-button" id="logout" hidden>Log out</button></div>
+  </header>
+
+  <main id="portal-main">
+    <section class="login-shell" id="login-view">
+      <div class="login-copy">
+        <p class="eyebrow">Accord Learning Portal</p>
+        <h1>Everything for your next learning milestone.</h1>
+        <p>Track portions, receive timed tests, submit answers and follow progress—together.</p>
+        <div class="feature-row"><span>✓ Personal tracker</span><span>✓ Timed tests</span><span>✓ Marks history</span></div>
+      </div>
+      <form class="login-card" id="login-form">
+        <div class="login-card__icon" aria-hidden="true">↗</div>
+        <h2>Welcome back</h2>
+        <p>Sign in with your Accord ID.</p>
+        <label>Student or teacher ID<input id="user-id" name="user-id" autocomplete="username" required></label>
+        <label>Password<input id="password" name="password" type="password" autocomplete="current-password" required></label>
+        <p class="form-error" id="login-error" role="alert"></p>
+        <button class="primary-button" type="submit">Sign in</button>
+        <details><summary>Demo credentials</summary><p>Student: <code>danny_parmar</code> / <code>parmar1234</code><br>Teacher: <code>harshit_patel</code> / <code>patel040506</code></p></details>
+        <p class="security-note"><strong>Local demo only.</strong> Data stays in this browser. Do not use real student records or sensitive documents.</p>
+      </form>
+    </section>
+
+    <section class="dashboard" id="dashboard" hidden>
+      <aside class="sidebar">
+        <a class="portal-brand" href="index.html"><span>AC</span> Accord</a>
+        <nav aria-label="Portal"><button class="side-link active" data-target="overview">Overview</button><button class="side-link" data-target="portions">Portion tracker</button><button class="side-link" data-target="tests">Tests &amp; marks</button><button class="side-link teacher-only" data-target="students">Students</button></nav>
+        <div class="profile"><span class="avatar" id="avatar">DP</span><div><strong id="profile-name">Danny Parmar</strong><small id="profile-role">Student · Std 9</small></div></div>
+      </aside>
+      <div class="dashboard-main">
+        <div class="mobile-head"><button id="menu-button" aria-label="Open menu">☰</button><strong>Accord</strong></div>
+        <header class="dash-head"><div><p class="eyebrow" id="today"></p><h1 id="greeting">Good morning, Danny.</h1></div><button class="secondary-button" id="download-report">Download report</button></header>
+        <div class="demo-banner"><strong>Demo mode</strong><span>This preview stores data only on this device and is not suitable for real student information.</span></div>
+
+        <section class="panel-page active" id="overview">
+          <div class="stat-grid"><article><span>Overall progress</span><strong id="progress-number">0%</strong><div class="meter"><i id="progress-meter"></i></div></article><article><span>Active tests</span><strong id="active-count">0</strong><small>Available now</small></article><article><span>Average score</span><strong id="average-score">—</strong><small>Across marked tests</small></article></div>
+          <div class="content-grid"><article class="panel"><div class="panel-title"><div><p class="eyebrow">Your subjects</p><h2>Portion progress</h2></div><button class="text-button jump" data-target="portions">View all</button></div><div id="subject-preview"></div></article><article class="panel"><div class="panel-title"><div><p class="eyebrow">Up next</p><h2>Tests</h2></div></div><div id="test-preview" class="empty-state"></div></article></div>
+        </section>
+
+        <section class="panel-page" id="portions">
+          <div class="page-title"><div><p class="eyebrow">Maharashtra Board · Std 9</p><h2>Portion tracker</h2><p>Add chapters and mark each one as planned, learning or complete.</p></div></div>
+          <div class="subject-grid" id="subject-grid"></div>
+        </section>
+
+        <section class="panel-page" id="tests">
+          <div class="page-title"><div><p class="eyebrow">Assessment centre</p><h2>Tests &amp; marks</h2><p>Test papers appear only during the time window set by the teacher.</p></div><button class="primary-button teacher-only" id="new-test">Create test</button></div>
+          <div id="tests-list" class="test-list"></div>
+        </section>
+
+        <section class="panel-page teacher-only" id="students">
+          <div class="page-title"><div><p class="eyebrow">Classroom</p><h2>Students</h2><p>Manage learner access and review their progress.</p></div><button class="primary-button" id="add-student">Add student</button></div>
+          <div id="student-list"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="chapter-dialog"><form method="dialog" id="chapter-form"><button class="dialog-close" value="cancel" aria-label="Close">×</button><p class="eyebrow">Update portion</p><h2 id="chapter-title">Add chapter</h2><input id="chapter-subject" type="hidden"><label>Chapter or topic<input id="chapter-name" required maxlength="100"></label><label>Status<select id="chapter-status"><option value="planned">Planned</option><option value="learning">Learning</option><option value="complete">Complete</option></select></label><button class="primary-button" value="default">Save chapter</button></form></dialog>
+  <dialog id="test-dialog"><form method="dialog" id="test-form"><button class="dialog-close" value="cancel" aria-label="Close">×</button><p class="eyebrow">Teacher workspace</p><h2>Create a timed test</h2><label>Test title<input id="test-title" required maxlength="100"></label><label>Subject<select id="test-subject"></select></label><div class="two-cols"><label>Available from<input id="test-start" type="datetime-local" required></label><label>Closes at<input id="test-end" type="datetime-local" required></label></div><label>Question paper (PDF, max 10 MB)<input id="test-file" type="file" accept="application/pdf,.pdf" required></label><p class="form-error" id="test-error" role="alert"></p><button class="primary-button" value="default">Publish test</button></form></dialog>
+  <dialog id="student-dialog"><form method="dialog" id="student-form"><button class="dialog-close" value="cancel" aria-label="Close">×</button><p class="eyebrow">Teacher workspace · Demo</p><h2>Add a student</h2><label>Full name<input id="student-name" required maxlength="80"></label><label>Student ID<input id="student-id" required pattern="[a-z0-9_]+" maxlength="40"></label><label>Temporary password<input id="student-password" type="password" required minlength="8"></label><p class="security-note">Demo accounts stay in this browser. Production accounts must be created securely on the server.</p><p class="form-error" id="student-error" role="alert"></p><button class="primary-button" value="default">Create demo student</button></form></dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="portal.js" defer></script>
+</body>
+</html>

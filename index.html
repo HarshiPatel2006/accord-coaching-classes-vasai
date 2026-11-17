@@ -36,6 +36,8 @@
   <link rel="preload" href="assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/jakarta.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="public-refresh.css">
+  <link rel="stylesheet" href="public-tweaks.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["EducationalOrganization","LocalBusiness"],"name":"Accord Coaching Classes","@id":"https://harshipatel2006.github.io/accord-coaching-classes-vasai/#organization","description":"Family-run tuition and coaching classes in Vasai West for Jr KG to 10th standard: Maths and Science with Harshit Patel, languages and all other subjects with his mother.","areaServed":["Vasai West","Vasai-Virar"],"knowsAbout":["Maths","Science","Languages"],"employee":[{"@type":"Person","name":"Harshit Patel","jobTitle":"Maths and Science teacher"}],"address":{"@type":"PostalAddress","streetAddress":"Ghanshyam Enclave, Green Meadows, 103, Bangli, Vasai West, Vasai-Virar, Maharashtra 401207","addressLocality":"Vasai West","addressRegion":"Maharashtra","postalCode":"401207","addressCountry":"IN","description":"Plus code 9R74+RX Vasai-Virar, Maharashtra"},"telephone":"+919921798369","url":"https://harshipatel2006.github.io/accord-coaching-classes-vasai/","image":"https://harshipatel2006.github.io/accord-coaching-classes-vasai/assets/og-image.jpg","geo":{"@type":"GeoCoordinates","latitude":19.3645756,"longitude":72.8074277},"hasMap":"https://www.google.com/maps?q=19.3645756,72.8074277","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":"https://schema.org/Sunday","opens":"09:00","closes":"21:00"}]},{"@type":"WebSite","@id":"https://harshipatel2006.github.io/accord-coaching-classes-vasai/#website","url":"https://harshipatel2006.github.io/accord-coaching-classes-vasai/","name":"Accord Coaching Classes","inLanguage":"en-IN","publisher":{"@id":"https://harshipatel2006.github.io/accord-coaching-classes-vasai/#organization"}},{"@type":"FAQPage","@id":"https://harshipatel2006.github.io/accord-coaching-classes-vasai/#faq","mainEntity":[{"@type":"Question","name":"Which classes do you teach?","acceptedAnswer":{"@type":"Answer","text":"Every standard from Jr KG and Sr KG through 1st to 10th standard."}},{"@type":"Question","name":"Who teaches Maths and Science?","acceptedAnswer":{"@type":"Answer","text":"Harshit Patel teaches Maths and Science. His mother teaches all other subjects, and languages are her particular strength."}},{"@type":"Question","name":"Where is the class in Vasai West?","acceptedAnswer":{"@type":"Answer","text":"Ghanshyam Enclave, Green Meadows, 103, Bangli, Vasai West, Vasai-Virar, Maharashtra 401207."}},{"@type":"Question","name":"How do I ask about admission?","acceptedAnswer":{"@type":"Answer","text":"Call or WhatsApp 099217 98369 to ask about batches and timings. Directions to the class are below."}}]}]}</script>
 </head>
 <body>
@@ -53,6 +55,7 @@
         <a href="#classes">Classes</a>
         <a href="#subjects">Subjects</a>
         <a href="#find-us">Find us</a>
+        <a href="portal.html">Portal</a>
         <a class="nav__cta" href="#contact">Contact</a>
       </nav>
     </div>
@@ -61,6 +64,8 @@
   <main id="main">
     <!-- 1. Hero -->
     <section class="hero" id="hero" aria-labelledby="hero-title">
+      <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="assets/media/hero-poster.jpg" aria-hidden="true"><source src="assets/media/hero.mp4" type="video/mp4"></video>
+      <div class="hero__shade" aria-hidden="true"></div>
       <div class="aurora" aria-hidden="true">
         <span class="aurora__blob aurora__blob--a"></span>
         <span class="aurora__blob aurora__blob--b"></span>
@@ -174,6 +179,7 @@
           <p class="reveal" data-reveal="up" style="--i:3">Harshit Patel teaches Maths and Science, and his mother teaches all other subjects, with a special love for languages. We focus on personal attention and strong basics, so children understand what they learn and grow in confidence.</p>
         </div>
         <div class="about__art reveal" data-reveal="scale" style="--i:2" aria-hidden="true">
+          <img class="editorial-photo" src="assets/media/classroom.jpg" width="1600" height="1067" loading="lazy" decoding="async" alt="">
           <svg viewBox="0 0 320 320" class="orbit">
             <defs>
               <linearGradient id="g-orb" x1="0" y1="0" x2="1" y2="1">

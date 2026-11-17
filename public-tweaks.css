@@ -1,0 +1,14 @@
+.hero .stats li {
+  background: rgba(0, 0, 0, .34);
+  border: 1px solid rgba(255, 255, 255, .22);
+  backdrop-filter: blur(14px);
+}
+
+.hero .stats li strong,
+.hero .stats li span { color: #fff; }
+
+.footer .brand,
+.footer .brand span { color: #fff; }
+.footer__addr,
+.footer__seo,
+.footer__copy { color: #aaaab2; }
